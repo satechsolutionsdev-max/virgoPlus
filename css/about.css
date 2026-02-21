@@ -1,0 +1,287 @@
+/* ===========================
+   COMPANY OVERVIEW
+   =========================== */
+.company-overview {
+    background: var(--white);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.content-text h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--dark-blue);
+}
+
+.content-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* ===========================
+   Page Header
+   =========================== */
+
+.page-header {
+    position: relative;
+    padding: 120px 0;
+    text-align: center;
+    color: #080707;
+    background: url("../images/thumbnails/about\ bg.png") center/cover no-repeat;
+}
+
+.page-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* ===========================
+   Manufacturer Img
+   =========================== */
+
+.image-placeholder {
+    width: 100%;
+    height: 400px;
+    background: var(--light-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 400px;
+    background: var(--light-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease-in-out;
+}
+
+.image-placeholder:hover img {
+    transform: scale(1.1);
+}
+
+
+/* ===========================
+   VISION & MISSION
+   =========================== */
+
+.vm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 40px;
+}
+
+.vm-card {
+    background: var(--white);
+    padding: 45px 35px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.vm-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.vm-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 102, 204, 0.08);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.vm-icon img,
+.vm-icon svg {
+    width: 100px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.vm-card:hover .vm-icon {
+    background: rgba(9, 118, 227, 0.15);
+    transform: scale(1.05);
+}
+
+.vm-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    color: var(--dark-blue);
+}
+
+.vm-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.vision-card {
+    border-left: 4px solid var(--primary-blue);
+}
+
+.mission-card {
+    border-left: 4px solid var(--dark-blue);
+}
+
+
+/* ===========================
+   CORE VALUES
+   =========================== */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+.value-card {
+    background: var(--white);
+    padding: 35px 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-left: 4px solid var(--primary-blue);
+}
+
+.value-icon {
+    width: 100px;
+    height: 100px;
+    background: var(--light-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.value-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.value-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+}
+
+.value-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ===========================
+   WHY PARTNER WITH US
+   =========================== */
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.partner-item {
+    background: var(--white);
+    padding: 30px 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.partner-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.partner-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--primary-blue);
+}
+
+.partner-item p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .image-placeholder {
+        height: 300px;
+    }
+
+    .vm-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vm-card {
+        padding: 40px 30px;
+    }
+
+    .value-card {
+        padding: 30px 25px;
+    }
+}

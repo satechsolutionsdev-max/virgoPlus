@@ -1,0 +1,543 @@
+/* ===========================
+   HEAD OFFICE
+   =========================== */
+.office-card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.office-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--dark-blue);
+}
+
+.office-address {
+    margin-bottom: 25px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.office-address strong {
+    color: var(--dark-blue);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.office-contacts p {
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.office-contacts strong {
+    color: var(--dark-blue);
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background: var(--light-blue);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ===========================
+   NETWORK MAP
+   =========================== */
+.map-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+/* INDIA MAP IMAGE */
+.india-map {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.india-map-img {
+    width: 60%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.india-map-img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+#head-office-map {
+    height: 300px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+}
+
+.map-hint {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #6b7280;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.leaflet-popup-content strong {
+    color: #0066cc;
+    font-size: 0.95rem;
+}
+
+
+/* ===========================
+   DEALER NETWORK
+   =========================== */
+.dealers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.dealer-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-blue);
+}
+
+.dealer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.dealer-region {
+    display: inline-block;
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.dealer-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--dark-blue);
+}
+
+.dealer-card p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.dealer-link {
+    color: var(--primary-blue);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.dealer-link:hover {
+    color: var(--dark-blue);
+}
+
+/* ===========================
+   SERVICE CENTERS
+   =========================== */
+.service-info {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-description {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    color: var(--text-secondary);
+}
+
+.service-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.service-feature {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.service-feature:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-feature .feature-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+.service-feature h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--dark-blue);
+}
+
+.service-feature p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ===========================
+   DEALERSHIP APPLICATION
+   =========================== */
+
+.dealership-content {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 50px;
+}
+
+/* LEFT SIDE CONTENT */
+.dealership-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    color: var(--dark-blue);
+}
+
+.dealership-benefits {
+    list-style: none;
+    margin-bottom: 35px;
+}
+
+.dealership-benefits li {
+    padding: 15px 0;
+    padding-left: 30px;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dealership-benefits li:last-child {
+    border-bottom: none;
+}
+
+.dealership-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.dealership-benefits strong {
+    color: var(--dark-blue);
+}
+
+.dealership-requirements {
+    background: var(--light-blue);
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.dealership-requirements h4 {
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+}
+
+.dealership-requirements ul {
+    list-style: none;
+}
+
+.dealership-requirements li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.dealership-requirements li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+
+/* RIGHT SIDE FORM */
+.dealership-form-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.dealership-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: var(--dark-blue);
+    text-align: center;
+}
+
+/* FORM FIELDS */
+.dealership-form .form-group {
+    margin-bottom: 18px;
+}
+
+.dealership-form input,
+.dealership-form select,
+.dealership-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.dealership-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Focus Effect */
+.dealership-form input:focus,
+.dealership-form select:focus,
+.dealership-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* Required Left Border */
+.dealership-form input:required,
+.dealership-form select:required,
+.dealership-form textarea:required {
+    border-left: 3px solid var(--primary-blue);
+}
+
+/* Submit Button */
+.dealership-form .btn-primary {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    background: var(--primary-blue);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dealership-form .btn-primary:hover {
+    background: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.dealership-form .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow);
+}
+
+/* Note Text */
+.form-note {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+    .dealership-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .dealership-form-container {
+        padding: 30px;
+    }
+}
+
+/* ===========================
+   NETWORK CONTACT
+   =========================== */
+.contact-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.contact-box {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.contact-box:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+}
+
+.contact-box p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.contact-box p:first-of-type {
+    margin-bottom: 20px;
+}
+
+.contact-box strong {
+    color: var(--dark-blue);
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+@media (max-width: 768px) {
+    .office-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .dealers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-features {
+        grid-template-columns: 1fr;
+    }
+
+    .dealership-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .dealership-form-container {
+        padding: 30px;
+    }
+
+    .contact-boxes {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   PAN-INDIA NETWORK MAP
+   =========================== */
+#pan-india-map {
+    height: 520px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+}
+
+.pan-map-legend {
+    display: flex;
+    gap: 24px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-right: 4px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    font-family: sans-serif;
+}
+
+.legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.legend-dot.red {
+    background: #e53e3e;
+}
+
+.legend-dot.blue {
+    background: #0066cc;
+}
+
+@media (max-width: 576px) {
+    #pan-india-map {
+        height: 460px;
+    }
+
+    .pan-map-legend {
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .legend-item {
+        font-size: 0.8rem;
+    }
+
+    .legend-dot {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Mobile tap hint */
+    .map-hint {
+        font-size: 0.82rem;
+    }
+}

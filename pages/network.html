@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Virgo Plus Network - Find dealers and service centers across India">
+    <title>Our Network - Virgo Plus</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/network.css">
+
+    <!-- For map -->
+    <link rel="stylesheet" href="../css/leaflet.css" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+
+                    <!-- Logo Section -->
+                    <div class="logo-group">
+                        <a href="../index.html" class="logo-main">
+                            <img src="../images/logo/virgo solutions logo.png" alt="Virgo Plus">
+                        </a>
+
+                        <a href="../index.html" class="logo-sub">
+                            <img src="../images/logo/virgo plus logo.png" alt="Virgo Solutions">
+                        </a>
+                    </div>
+
+                    <!-- Mobile Toggle -->
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <!-- Navigation Menu -->
+                    <ul class="nav-menu" id="navMenu">
+
+                        <li>
+                            <a href="../index.html" class="nav-link">HOME</a>
+                        </li>
+
+                        <li>
+                            <a href="../pages/about.html" class="nav-link">ABOUT US</a>
+                        </li>
+
+                        <!-- PRODUCTS DROPDOWN -->
+                        <li class="nav-item dropdown">
+                            <a href="product/products.html" class="nav-link">
+                                PRODUCTS <span class="arrow">▾</span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="../pages/product/arc/arcMachine.html">ARC Welding</a></li>
+                                <li><a href="../pages/product/tig/tigmachines.html">TIG Welding</a></li>
+                                <li><a href="product/products.html#mig">MIG Welding</a></li>
+                                <li><a href="product/products.html#saw">SAW Machines</a></li>
+                                <li><a href="product/products.html#cut">Plasma Cutting</a></li>
+                                <li><a href="product/products.html#stud">Stud Welding</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="../pages/support.html" class="nav-link">SUPPORT</a>
+                        </li>
+
+                        <li>
+                            <a href="../pages/network.html" class="nav-link">OUR NETWORK</a>
+                        </li>
+
+                        <li>
+                            <a href="../pages/contactUs.html" class="nav-link">CONTACT US</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <!-- <section class="page-header">
+        <div class="container">
+            <h1>Our Network</h1>
+            <p>Pan-India presence with authorized dealers and service centers</p>
+        </div>
+    </section> -->
+
+    <!-- Head Office -->
+    <section class="head-office section">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Head Office</h2>
+                <p class="section-subtitle">Corporate headquarters and manufacturing facility</p>
+            </div>
+            <div class="office-card">
+                <div class="office-info">
+                    <h3>Virgo Solutions India LLP</h3>
+                    <p class="office-address">
+                        <strong>Address:</strong>
+                        1st Floor, 5- 5-80, SRI Srinivasa Commercial Complex,<br>
+                        Ranigunj, Secunderabad – 500003 (TELANGANA) India
+                    </p>
+                    <div class="office-contacts">
+                        <!--<p><strong>Phone:</strong> +91-XXXX-XXXXXX</p> -->
+                        <p><strong>Email:</strong>
+                            <a href="/cdn-cgi/l/email-protection" class="email">info@virgosolutions.in</a>
+                        </p>
+                        <p><strong>Working Hours:</strong> Mon-Sat, 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="office-map">
+                    <div id="head-office-map"></div>
+                    <p class="map-hint">📍 Click the red pin to zoom into the office location</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- India Network Map -->
+    <section class="network-map section bg-light">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Pan-India Network</h2>
+                <p class="section-subtitle">Find our authorized dealers and service centers near you</p>
+            </div>
+            <div class="map-container">
+                <!-- Legend -->
+                <div class="pan-map-legend">
+                    <span class="legend-item">
+                        <span class="legend-dot red"></span> Head Office
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-dot blue"></span> Dealer Locations
+                    </span>
+                </div>
+                <div id="pan-india-map"></div>
+                <p class="map-hint">📍 Click any location pin to view details &nbsp;|&nbsp; Double-click map to reset
+                    view</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dealer Network -->
+    <section class="dealer-network section">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Dealer Network</h2>
+                <p class="section-subtitle">Authorized dealers across major cities</p>
+            </div>
+            <div class="dealers-grid">
+                <div class="dealer-card">
+                    <div class="dealer-region">North India</div>
+                    <h3>Delhi NCR</h3>
+                    <strong>Address:</strong>
+                    <p>485/A/7b, Dilshad Garden
+                        Industrial Area, Ahinsa Compound
+                        G.T. Road, New Delhi - 110095
+                    </p><br>
+                    <a href="#contact-dealer" class="dealer-link">Contact →</a>
+                </div>
+
+                <div class="dealer-card">
+                    <div class="dealer-region">West India</div>
+                    <h3>Mumbai & Maharashtra</h3>
+                    <strong>Address:</strong>
+                    <p>Godown No 4, J3, Ground Floor, Kasturi Complex, Old Agra Road, Anjur Phata, Rahanal Village,
+                        Bhiwandi – 421302. (MAHARASHTRA)</p>
+                    <a href="#contact-dealer" class="dealer-link">Contact →</a>
+                </div>
+
+                <div class="dealer-card">
+                    <div class="dealer-region">South India</div>
+                    <h3>Hyderabad & Telangana</h3>
+                    <strong>Address:</strong>
+                    <p>Door No. A-5/1, Cooperative Industrial Estate, Balanagar, Hyderabad – 500037 (TELANGANA).</p><br>
+                    <a href="#contact-dealer" class="dealer-link">Contact →</a>
+                </div>
+
+                <div class="dealer-card">
+                    <div class="dealer-region">Central India</div>
+                    <h3>Raipur & Chhattisgarh</h3>
+                    <strong>Address:</strong>
+                    <p>Shop No 1, Mahalaxmi Tower.
+                        Opp Deshbandhu School Gali, Beside Hotel Sawariya In
+                        Kelkar Para, Raipur – 492001 (CHATTISGARH)
+                    </p>
+                    <a href="#contact-dealer" class="dealer-link">Contact →</a>
+                </div>
+
+                <div class="dealer-card">
+                    <div class="dealer-region">Indore Central</div>
+                    <h3>Indore & Madhya Pradesh</h3>
+                    <strong>Address:</strong>
+                    <p>Shop No Lg-6, Labh Shri Complex, Mall Godam Road Near New Siyaganj, Indore – 452007 (MADHYA
+                        PRADESH)</p> <br>
+                    <a href="#contact-dealer" class="dealer-link">Contact →</a>
+                </div>
+
+                <div class="dealer-card">
+                    <div class="dealer-region">East India</div>
+                    <h3>Kolkata & West Bengal</h3>
+                    <strong>Address:</strong>
+                    <p>1st Floor,7 No. Swallow Lane 233,
+                        233 Old Chaina Bazar, Kolkata -700001 (WEST BENGAL)</p> <br>
+                    <a href="#contact-dealer" class="dealer-link">Contact →</a>
+                </div>
+
+                <div class="dealer-card">
+                    <div class="dealer-region">West India</div>
+                    <h3>Ahmedabad & Gujarat</h3>
+                    <strong>Address:</strong>
+                    <p>Shop No A17, Ground Floor, Tejendra Complex, Opp. Cm C, Odhav, Ahmedabad- 382415. (GUJARAT)</p>
+                    <a href="#contact-dealer" class="dealer-link">Contact →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Centers -->
+    <section class="service-centers section bg-light">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Authorized Service Centers</h2>
+                <p class="section-subtitle">Expert service and support across India</p>
+            </div>
+            <div class="service-info">
+                <p class="service-description">
+                    Our authorized service centers are equipped with trained technicians and genuine spare parts to
+                    ensure your equipment stays in optimal condition. We provide prompt service, regular maintenance,
+                    and emergency support to minimize downtime.
+                </p>
+                <div class="service-features">
+                    <div class="service-feature">
+                        <div class="feature-icon">✓</div>
+                        <h4>Trained Technicians</h4>
+                        <p>Factory-trained service engineers</p>
+                    </div>
+                    <div class="service-feature">
+                        <div class="feature-icon">✓</div>
+                        <h4>Genuine Parts</h4>
+                        <p>Only authentic Virgo Plus spare parts</p>
+                    </div>
+                    <!-- <div class="service-feature">
+                        <div class="feature-icon">✓</div>
+                        <h4>Quick Turnaround</h4>
+                        <p>Fast service and minimal downtime</p>
+                    </div> -->
+                    <div class="service-feature">
+                        <div class="feature-icon">✓</div>
+                        <h4>Warranty Support</h4>
+                        <p>Full warranty service coverage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dealership Application -->
+    <section class="dealership-section section" id="dealership">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Apply for Dealership</h2>
+                <p class="section-subtitle">Join the Virgo Plus network as an authorized dealer</p>
+            </div>
+
+            <div class="dealership-content">
+
+                <!-- LEFT CONTENT -->
+                <div class="dealership-info">
+                    <h3>Why Partner With Us?</h3>
+                    <ul class="dealership-benefits">
+                        <li><strong>Quality Products:</strong> Market-leading welding equipment with proven reliability
+                        </li>
+                        <li><strong>Competitive Margins:</strong> Attractive profit margins and incentive schemes</li>
+                        <li><strong>Marketing Support:</strong> Comprehensive marketing materials and brand support</li>
+                        <li><strong>Technical Training:</strong> Regular product training for your team</li>
+                        <li><strong>Inventory Support:</strong> Flexible inventory and credit terms</li>
+                        <li><strong>After-Sales Backup:</strong> Complete technical and service support</li>
+                    </ul>
+
+                    <div class="dealership-requirements">
+                        <h4>Basic Requirements</h4>
+                        <ul>
+                            <li>Established business with relevant experience</li>
+                            <li>Adequate showroom and storage space</li>
+                            <li>Financial capability to maintain inventory</li>
+                            <li>Commitment to brand standards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FORM SECTION -->
+                <div class="dealership-form-container">
+                    <form class="dealership-form" id="dealershipForm">
+
+                        <h3>Application Form</h3>
+
+                        <div class="form-group">
+                            <input type="text" name="companyName" placeholder="Company/Business Name *" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="contactPerson" placeholder="Contact Person Name *" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email Address *" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number *" required>
+                        </div>
+
+                        <!-- ✅ GST Number Field Added -->
+                        <div class="form-group">
+                            <input type="text" name="gstNumber" placeholder="GST Number *"
+                                pattern="^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$"
+                                title="Enter valid GST number (Example: 22AAAAA0000A1Z5)" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="city" placeholder="City *" required>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="state" required>
+                                <option value="">Select State *</option>
+                                <option value="AP">Andhra Pradesh</option>
+                                <option value="AR">Arunachal Pradesh</option>
+                                <option value="AS">Assam</option>
+                                <option value="BR">Bihar</option>
+                                <option value="CG">Chhattisgarh</option>
+                                <option value="GA">Goa</option>
+                                <option value="GJ">Gujarat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="HP">Himachal Pradesh</option>
+                                <option value="JK">Jammu and Kashmir</option>
+                                <option value="JH">Jharkhand</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="KL">Kerala</option>
+                                <option value="MP">Madhya Pradesh</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="MN">Manipur</option>
+                                <option value="ML">Meghalaya</option>
+                                <option value="MZ">Mizoram</option>
+                                <option value="NL">Nagaland</option>
+                                <option value="OD">Odisha</option>
+                                <option value="PB">Punjab</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="SK">Sikkim</option>
+                                <option value="TN">Tamil Nadu</option>
+                                <option value="TS">Telangana</option>
+                                <option value="TR">Tripura</option>
+                                <option value="UP">Uttar Pradesh</option>
+                                <option value="UK">Uttarakhand</option>
+                                <option value="WB">West Bengal</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" name="yearsInBusiness" placeholder="Years in Business *" required>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="businessType" required>
+                                <option value="">Current Business Type *</option>
+                                <option value="welding">Welding Equipment Dealer</option>
+                                <option value="industrial">Industrial Equipment</option>
+                                <option value="hardware">Hardware/Tools</option>
+                                <option value="fabrication">Fabrication Shop</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="businessAddress" placeholder="Business Address *" rows="3"
+                                required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Tell us why you want to partner with Virgo Plus"
+                                rows="4"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+
+                        <p class="form-note">
+                            Our business development team will review your application and contact you within 3-5
+                            business days.
+                        </p>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact for Network Queries -->
+    <section class="network-contact section bg-light" id="contact-dealer">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Find a Dealer Near You</h2>
+                <p class="section-subtitle">Contact us to locate the nearest authorized dealer or service center</p>
+            </div>
+            <div class="contact-boxes">
+                <div class="contact-box">
+                    <h3>Sales Network</h3>
+                    <p>For dealer information and product availability</p>
+                    <p><strong>Email:</strong> sales@virgoplus.in</p>
+                    <p><strong>Phone:</strong> +91-XXXX-XXXXXX</p>
+                </div>
+                <div class="contact-box">
+                    <h3>Service Network</h3>
+                    <p>For service center locations and support</p>
+                    <p><strong>Email:</strong> service@virgoplus.in</p>
+                    <p><strong>Phone:</strong> +91-XXXX-XXXXXX</p>
+                </div>
+                <div class="contact-box">
+                    <h3>Dealership Queries</h3>
+                    <p>For partnership and dealership opportunities</p>
+                    <p><strong>Email:</strong> business@virgoplus.in</p>
+                    <p><strong>Phone:</strong> +91-XXXX-XXXXXX</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Virgo Plus</h3>
+                    <p>Virgo Solutions India LLP</p>
+                    <p>Leading manufacturer of welding machines and cutting equipment in India</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="network.html">Our Network</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="support.html#manuals">Product Manuals</a></li>
+                        <li><a href="support.html#warranty">Warranty Policy</a></li>
+                        <li><a href="support.html#faq">FAQ</a></li>
+                        <li><a href="support.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Email: info@virgoplus.in</p>
+                    <p>Sales: Sales@Virgoplus.In</p>
+                    <p>Service: Service@virgoplus.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Virgo Solutions India LLP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/leaflet.js"></script>
+    <script src="../js/network.js"></script>
+    <script src="../js/global.js"></script>
+</body>
+
+</html>
