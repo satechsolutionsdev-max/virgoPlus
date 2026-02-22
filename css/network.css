@@ -441,38 +441,43 @@
 
 /* ===========================
    NETWORK CONTACT
-   Fully Responsive
+   Fully Responsive Fix
    =========================== */
+
+.network-contact {
+    padding: 60px 15px;
+    /* important for mobile spacing */
+}
 
 .contact-boxes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
 }
 
-/* Contact Card */
+/* Card */
 .contact-box {
     background: var(--white);
-    padding: 35px;
+    padding: 30px 20px;
     border-radius: 10px;
     box-shadow: var(--shadow);
     text-align: center;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
+    height: 100%;
 }
 
 .contact-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
 
-/* Title */
+/* Text */
 .contact-box h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 15px;
     color: var(--dark-blue);
 }
 
-/* Paragraph */
 .contact-box p {
     color: var(--text-secondary);
     margin-bottom: 10px;
@@ -481,50 +486,17 @@
 }
 
 .contact-box p:first-of-type {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
-.contact-box strong {
-    color: var(--dark-blue);
-}
-
-/* ===========================
-   Tablet Responsive
-   =========================== */
-@media (max-width: 992px) {
-    .contact-box {
-        padding: 25px;
-    }
-
-    .contact-box h3 {
-        font-size: 1.2rem;
-    }
-
-    .contact-box p {
-        font-size: 0.9rem;
-    }
-}
-
-/* ===========================
-   Mobile Responsive
-   =========================== */
-@media (max-width: 576px) {
-
+/* ===== Mobile Fix ===== */
+@media (max-width: 768px) {
     .contact-boxes {
-        gap: 20px;
+        grid-template-columns: 1fr;
     }
 
     .contact-box {
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    .contact-box h3 {
-        font-size: 1.1rem;
-    }
-
-    .contact-box p {
-        font-size: 0.85rem;
+        padding: 25px 15px;
     }
 }
 
