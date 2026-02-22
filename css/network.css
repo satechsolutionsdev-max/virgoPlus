@@ -400,7 +400,7 @@
 /* ===========================
    NETWORK CONTACT
    =========================== */
-.contact-boxes {
+/* .contact-boxes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
@@ -437,6 +437,95 @@
 
 .contact-box strong {
     color: var(--dark-blue);
+} */
+
+/* ===========================
+   NETWORK CONTACT
+   Fully Responsive
+   =========================== */
+
+.contact-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Contact Card */
+.contact-box {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Title */
+.contact-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+}
+
+/* Paragraph */
+.contact-box p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.contact-box p:first-of-type {
+    margin-bottom: 20px;
+}
+
+.contact-box strong {
+    color: var(--dark-blue);
+}
+
+/* ===========================
+   Tablet Responsive
+   =========================== */
+@media (max-width: 992px) {
+    .contact-box {
+        padding: 25px;
+    }
+
+    .contact-box h3 {
+        font-size: 1.2rem;
+    }
+
+    .contact-box p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===========================
+   Mobile Responsive
+   =========================== */
+@media (max-width: 576px) {
+
+    .contact-boxes {
+        gap: 20px;
+    }
+
+    .contact-box {
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .contact-box h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-box p {
+        font-size: 0.85rem;
+    }
 }
 
 /* ===========================
