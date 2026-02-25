@@ -37,6 +37,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdown = document.querySelector(".nav-item");
+  const navLink = dropdown.querySelector(".nav-link");
+
+  navLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    dropdown.classList.toggle("active");
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+});
+
 // ===========================
 // STICKY HEADER ON SCROLL
 // ===========================

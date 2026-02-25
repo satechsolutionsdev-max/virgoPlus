@@ -186,46 +186,58 @@ p {
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 115%;
     left: 0;
     background: #ffffff;
-    min-width: 220px;
-    border-radius: 6px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    padding: 8px 0;
+    min-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
     display: none;
     z-index: 1000;
 }
 
-.dropdown-menu li {
-    list-style: none;
-}
-
+/* Keep SAME font */
 .dropdown-menu a {
     display: block;
-    padding: 10px 20px;
+    padding: 12px 22px;
     text-decoration: none;
     font-size: 0.9rem;
+    font-family: inherit;
     color: #1c2b4a;
-    transition: 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .dropdown-menu a:hover {
-    background: #0066cc;
-    color: #ffffff;
+    background: rgba(0, 102, 204, 0.07);
+    color: #0066cc;
 }
 
-/* Show on hover (Desktop) */
-.nav-item:hover .dropdown-menu {
+/* Arrow */
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.arrow {
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid var(--text-primary);
+    border-bottom: 2px solid var(--text-primary);
+    transform: rotate(45deg);
+    transition: 0.3s ease;
+    margin-top: -2px;
+}
+
+.nav-item.active .dropdown-menu {
     display: block;
 }
 
-/* Arrow style */
-.arrow {
-    font-size: 0.7rem;
-    margin-left: 5px;
+.nav-item.active .arrow {
+    transform: rotate(225deg);
+    border-color: var(--primary-blue);
 }
-
 
 /* ===========================
    HEADER & NAVIGATION
@@ -327,30 +339,78 @@ p {
 }
 
 @media (max-width: 768px) {
+
     .mobile-toggle {
         display: flex;
+        z-index: 1100;
     }
 
+    /* ===========================
+       PROFESSIONAL SIDE DRAWER
+       =========================== */
     .nav-menu {
         position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
         background: var(--white);
         flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-        transition: left 0.3s ease;
-        box-shadow: var(--shadow-lg);
+        padding: 90px 25px 40px;
+        gap: 8px;
+        transition: right 0.4s ease;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+        overflow-y: auto;
     }
 
     .nav-menu.active {
-        left: 0;
+        right: 0;
     }
 
+    /* Professional Nav Links */
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--gray-200);
+        transition: var(--transition);
+    }
+
+    .nav-link:hover {
+        padding-left: 10px;
+        color: var(--primary-blue);
+    }
+
+    /* Mobile Dropdown Styling */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-radius: 6px;
+        background: var(--light-blue);
+        margin-top: 6px;
+        padding: 8px 10px;
+    }
+
+    .dropdown-menu a {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+        border-radius: 4px;
+    }
+
+    .dropdown-menu a:hover {
+        background: var(--primary-blue);
+        color: var(--white);
+    }
+
+    /* Hamburger Animation (Keep Existing) */
     .mobile-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
+        transform: rotate(45deg) translate(6px, 6px);
     }
 
     .mobile-toggle.active span:nth-child(2) {
@@ -358,9 +418,10 @@ p {
     }
 
     .mobile-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
+        transform: rotate(-45deg) translate(6px, -6px);
     }
 
+    /* Logo Adjustments */
     .logo-group {
         flex-direction: column;
         align-items: flex-start;
