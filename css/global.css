@@ -346,69 +346,96 @@ p {
     }
 
     /* ===========================
-       PROFESSIONAL SIDE DRAWER
-       =========================== */
+   MOBILE DRAWER
+   =========================== */
     .nav-menu {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 280px;
+        width: 100%;
         height: 100vh;
         background: var(--white);
         flex-direction: column;
-        padding: 90px 25px 40px;
-        gap: 8px;
-        transition: right 0.4s ease;
-        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
+        padding: 100px 25px 40px;
+        gap: 0;
+        transition: right 0.45s cubic-bezier(0.77, 0, 0.175, 1);
         z-index: 1000;
         overflow-y: auto;
+        box-shadow: -4px 0 20px rgba(0, 0, 102, 0.08);
     }
 
     .nav-menu.active {
         right: 0;
     }
 
-    /* Professional Nav Links */
+    /* Nav Items */
     .nav-menu li {
         width: 100%;
+        border-bottom: 1px solid var(--gray-200);
     }
 
     .nav-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        font-size: 0.95rem;
-        font-weight: 600;
-        padding: 14px 0;
-        border-bottom: 1px solid var(--gray-200);
+        padding: 18px 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--text-primary);
         transition: var(--transition);
     }
 
     .nav-link:hover {
-        padding-left: 10px;
         color: var(--primary-blue);
+        padding-left: 6px;
     }
 
-    /* Mobile Dropdown Styling */
+    /* Arrow color on white background */
+    .arrow {
+        border-color: var(--text-primary);
+    }
+
+    .nav-item.active .arrow {
+        border-color: var(--primary-blue);
+        transform: rotate(225deg);
+    }
+
+    /* Dropdown — Accordion Style */
     .dropdown-menu {
         position: static;
+        background: var(--light-blue);
         box-shadow: none;
         border-radius: 6px;
-        background: var(--light-blue);
-        margin-top: 6px;
-        padding: 8px 10px;
+        padding: 0;
+        min-width: unset;
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        margin-bottom: 0;
+    }
+
+    .nav-item.active .dropdown-menu {
+        max-height: 500px;
+        padding: 6px 0;
+        margin-bottom: 8px;
     }
 
     .dropdown-menu a {
-        font-size: 0.85rem;
-        padding: 8px 10px;
-        border-radius: 4px;
+        padding: 11px 0 11px 18px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        border-radius: 0;
     }
 
     .dropdown-menu a:hover {
-        background: var(--primary-blue);
-        color: var(--white);
+        background: rgba(0, 102, 204, 0.08);
+        color: var(--primary-blue);
+        padding-left: 26px;
     }
 
-    /* Hamburger Animation (Keep Existing) */
+    /* Hamburger Animation */
     .mobile-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(6px, 6px);
     }
@@ -435,6 +462,13 @@ p {
     .logo-sub {
         font-size: 0.75rem;
     }
+}
+
+/* ===========================
+   BODY SCROLL LOCK (menu open)
+   =========================== */
+body.menu-open {
+    overflow: hidden;
 }
 
 /* ===========================

@@ -5,18 +5,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileToggle = document.getElementById("mobileToggle");
   const navMenu = document.getElementById("navMenu");
 
+  function closeMenu() {
+    mobileToggle.classList.remove("active");
+    navMenu.classList.remove("active");
+    document.body.classList.remove("menu-open");
+  }
+
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener("click", function () {
       this.classList.toggle("active");
       navMenu.classList.toggle("active");
+      document.body.classList.toggle("menu-open");
     });
 
-    // Close menu when clicking on a nav link
+    // Close menu only on plain nav links — NOT on dropdown triggers
     const navLinks = navMenu.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
+      // Skip links that are inside a .nav-item (dropdown trigger)
+      if (link.closest(".nav-item")) return;
       link.addEventListener("click", function () {
-        mobileToggle.classList.remove("active");
-        navMenu.classList.remove("active");
+        closeMenu();
       });
     });
 
@@ -30,27 +38,40 @@ document.addEventListener("DOMContentLoaded", function () {
         !isClickOnToggle &&
         navMenu.classList.contains("active")
       ) {
-        mobileToggle.classList.remove("active");
-        navMenu.classList.remove("active");
+        closeMenu();
       }
     });
   }
 });
 
+// ===========================
+// DROPDOWN TOGGLE (all .nav-item dropdowns)
+// ===========================
 document.addEventListener("DOMContentLoaded", function () {
-  const dropdown = document.querySelector(".nav-item");
-  const navLink = dropdown.querySelector(".nav-link");
+  const dropdownItems = document.querySelectorAll(".nav-item");
 
-  navLink.addEventListener("click", function (e) {
-    e.preventDefault();
-    dropdown.classList.toggle("active");
+  dropdownItems.forEach(function (dropdown) {
+    const navLink = dropdown.querySelector(":scope > .nav-link");
+    if (!navLink) return;
+
+    navLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation(); // prevent outside-click handler firing
+      // Close other open dropdowns first
+      dropdownItems.forEach(function (other) {
+        if (other !== dropdown) other.classList.remove("active");
+      });
+      dropdown.classList.toggle("active");
+    });
   });
 
-  // Close when clicking outside
+  // Close all dropdowns when clicking outside
   document.addEventListener("click", function (e) {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("active");
-    }
+    dropdownItems.forEach(function (dropdown) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
   });
 });
 
@@ -157,20 +178,6 @@ if ("IntersectionObserver" in window) {
     imageObserver.observe(img);
   });
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  const dropdownLink = document.querySelector(".dropdown > .nav-link");
-
-  dropdownLink.addEventListener("click", function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const dropdownMenu = this.nextElementSibling;
-
-      dropdownMenu.style.display =
-        dropdownMenu.style.display === "block" ? "none" : "block";
-    }
-  });
-});
 
 // ===============================
 // Universal Active Navbar
