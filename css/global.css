@@ -347,9 +347,7 @@ p {
     }
 
     /* ===========================
-       TCS-STYLE MOBILE DRAWER
-       White + Blue Theme
-       Header stays visible on top
+       Mobile Header
        =========================== */
     .nav-menu {
         position: fixed;
