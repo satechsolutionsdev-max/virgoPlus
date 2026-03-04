@@ -37,6 +37,20 @@
     color: var(--text-secondary);
 }
 
+.support-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.support-icon img {
+    width: 80px;
+    /* Bigger icon */
+    height: 80px;
+    object-fit: contain;
+}
+
 /* ===========================
    MANUALS SECTION
    =========================== */
