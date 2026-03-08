@@ -249,6 +249,7 @@ p {
     top: 0;
     z-index: 1200;
     transition: var(--transition);
+    isolation: isolate;
 }
 
 .header.scrolled {
@@ -351,24 +352,22 @@ p {
        =========================== */
     .nav-menu {
         position: fixed;
-        top: 0;
-        /* starts from very top of viewport */
+        top: 63px;
+        /* flush below sticky header */
         right: -100%;
         width: 100%;
-        height: 100vh;
+        height: calc(100vh - 63px);
         background: var(--white);
         flex-direction: column;
-        padding-top: 72px;
-        /* clears the header height so content starts below it */
+        padding-top: 0;
         padding-left: 0;
         padding-right: 0;
-        padding-bottom: 40px;
+        padding-bottom: 0;
         gap: 0;
         transition: right 0.45s cubic-bezier(0.77, 0, 0.175, 1);
         z-index: 1100;
-        /* above page, BELOW header (1200) so logo shows */
         overflow-y: auto;
-        box-shadow: -4px 0 24px rgba(0, 51, 102, 0.1);
+        box-shadow: 0 8px 24px rgba(0, 51, 102, 0.1);
     }
 
     .nav-menu.active {

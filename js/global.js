@@ -1,4 +1,25 @@
 // ===========================
+// SET MENU TOP FROM REAL HEADER HEIGHT
+// ===========================
+function setMenuPosition() {
+  const header = document.getElementById("header");
+  const navMenu = document.getElementById("navMenu");
+  if (header && navMenu) {
+    if (window.innerWidth <= 768) {
+      const h = header.getBoundingClientRect().height;
+      navMenu.style.top = h + "px";
+      navMenu.style.height = "calc(100vh - " + h + "px)";
+    } else {
+      // Reset inline styles on desktop so CSS takes over
+      navMenu.style.top = "";
+      navMenu.style.height = "";
+    }
+  }
+}
+window.addEventListener("DOMContentLoaded", setMenuPosition);
+window.addEventListener("resize", setMenuPosition);
+
+// ===========================
 // MOBILE MENU TOGGLE
 // ===========================
 document.addEventListener("DOMContentLoaded", function () {
