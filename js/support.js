@@ -239,3 +239,208 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ===========================
+// PRODUCT MODEL SEARCHABLE DROPDOWN
+// ===========================
+document.addEventListener("DOMContentLoaded", function () {
+  const wrapper = document.getElementById("modelSelect");
+  if (!wrapper) return;
+
+  const input = document.getElementById("modelSelectInput");
+  const hiddenInput = document.getElementById("productModel");
+  const dropdown = document.getElementById("modelSelectList");
+
+  const MODEL_DATA = {
+    "ARC Welding Machines": [
+      "ARC 200 HDI",
+      "ARC 200I",
+      "ARC 250D",
+      "ARC 315D",
+      "ARC 400 CI2",
+      "ARC 400 G2",
+      "ARC 400 GI",
+      "ARC 400 HDIJ",
+      "ARC 400 IJ2",
+      "ARC 400GT",
+      "ARC 400HDC2",
+      "ARC 630-2T",
+      "ARC 630GIJ",
+      "ARC 1000I",
+    ],
+    "CNC Machines": ["P CNC 1530", "PG CNC 2530", "PG PP CNC 1530"],
+    "Plasma Cutting Machines": [
+      "CUT 40S",
+      "CUT 60T",
+      "CUT 60TM",
+      "CUT 80",
+      "CUT 100U2",
+      "CUT 100M",
+      "CUT 160IJ",
+      "CUT 200CNC",
+      "CUT 300CNC",
+    ],
+    "Laser Welding Machines": [
+      "Hand Laser Welding Machine",
+      "HLW1500W",
+      "HLW2000W",
+      "HLW3000W",
+    ],
+    "MIG Welding Machines": [
+      "MIG 250IF",
+      "MIG 250IS",
+      "MIG 250WT",
+      "MIG 300D",
+      "MIG 400HDIJ",
+      "MIG 400LG",
+      "MIG 400VIJ2",
+      "MIG 500 VIJ2",
+      "MIG 500HDIJ",
+      "Mig 500pulse",
+      "MIG 630 HDIJ",
+      "MIG 630 VIJ2",
+    ],
+    "SAW Welding Machines": ["SAW 1200IJ", "SAW 1250IJ"],
+    "Stud Welding Machines": ["STUD 2500", "STUD 2500A"],
+    "TIG Welding Machines": [
+      "TIG 200 A",
+      "TIG 200P AC_DC",
+      "TIG 250D",
+      "TIG 250P AC_DC",
+      "TIG 300PT",
+      "TIG 315P AC_DC",
+      "TIG 400IJ",
+      "TIG 400P AC_DC",
+      "TIG 400P_DC",
+      "TIG 500 AP AC_DC",
+      "TIG 500P AC_DC",
+      "TIG 630IJ",
+    ],
+    "Welding Accessories": ["ES 301", "ES 351S", "ES 401S", "ES 451", "WP 261"],
+  };
+
+  let activeIndex = -1;
+  let visibleOptions = [];
+
+  function highlightMatch(text, query) {
+    if (!query) return text;
+    const idx = text.toLowerCase().indexOf(query.toLowerCase());
+    if (idx === -1) return text;
+    return (
+      text.slice(0, idx) +
+      "<mark>" +
+      text.slice(idx, idx + query.length) +
+      "</mark>" +
+      text.slice(idx + query.length)
+    );
+  }
+
+  function renderDropdown(query = "") {
+    dropdown.innerHTML = "";
+    visibleOptions = [];
+    const q = query.trim().toLowerCase();
+
+    Object.entries(MODEL_DATA).forEach(([groupName, models]) => {
+      const matches = models.filter((m) => m.toLowerCase().includes(q));
+      if (matches.length === 0) return;
+
+      const groupEl = document.createElement("div");
+      groupEl.className = "model-select-group";
+
+      const groupLabel = document.createElement("div");
+      groupLabel.className = "model-select-group-label";
+      groupLabel.textContent = groupName;
+      groupEl.appendChild(groupLabel);
+
+      matches.forEach((model) => {
+        const optEl = document.createElement("div");
+        optEl.className = "model-select-option";
+        optEl.setAttribute("role", "option");
+        optEl.innerHTML = highlightMatch(model, query);
+        optEl.dataset.value = model;
+
+        optEl.addEventListener("click", () => selectModel(model));
+        groupEl.appendChild(optEl);
+        visibleOptions.push(optEl);
+      });
+
+      dropdown.appendChild(groupEl);
+    });
+
+    if (visibleOptions.length === 0) {
+      const noResults = document.createElement("div");
+      noResults.className = "model-select-empty";
+      noResults.textContent = "No matching models found";
+      dropdown.appendChild(noResults);
+    }
+
+    activeIndex = -1;
+  }
+
+  function selectModel(model) {
+    input.value = model;
+    hiddenInput.value = model;
+    closeDropdown();
+    input.style.borderColor = "";
+  }
+
+  function openDropdown() {
+    wrapper.classList.add("open");
+    input.setAttribute("aria-expanded", "true");
+  }
+
+  function closeDropdown() {
+    wrapper.classList.remove("open");
+    input.setAttribute("aria-expanded", "false");
+    activeIndex = -1;
+  }
+
+  function setActive(index) {
+    visibleOptions.forEach((opt) => opt.classList.remove("active"));
+    if (index >= 0 && index < visibleOptions.length) {
+      visibleOptions[index].classList.add("active");
+      visibleOptions[index].scrollIntoView({ block: "nearest" });
+      activeIndex = index;
+    }
+  }
+
+  input.addEventListener("focus", function () {
+    renderDropdown(input.value === hiddenInput.value ? "" : input.value);
+    openDropdown();
+  });
+
+  input.addEventListener("input", function () {
+    hiddenInput.value = "";
+    renderDropdown(input.value);
+    openDropdown();
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (!wrapper.classList.contains("open")) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActive(Math.min(activeIndex + 1, visibleOptions.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActive(Math.max(activeIndex - 1, 0));
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (activeIndex >= 0 && visibleOptions[activeIndex]) {
+        selectModel(visibleOptions[activeIndex].dataset.value);
+      }
+    } else if (e.key === "Escape") {
+      closeDropdown();
+    }
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!wrapper.contains(e.target)) {
+      closeDropdown();
+      // Revert text if nothing valid was selected
+      if (input.value !== hiddenInput.value) {
+        input.value = hiddenInput.value;
+      }
+    }
+  });
+});

@@ -114,7 +114,7 @@
 
 
     <!-- Support Categories -->
-    <section class="support-categories section">
+    <section class="support-categories section bg-light">
         <div class="container">
             <div class="support-grid">
 
@@ -248,10 +248,25 @@
                     <h3>Register Your Product</h3>
                     <p>Register your Virgo Plus product to activate warranty coverage and receive important updates.</p>
 
-                    <form class="warranty-form" id="warrantyForm">
+                    <form class="warranty-form" id="warrantyForm" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <input type="text" name="serialNumber" placeholder="Product Serial Number *" required>
+                        </div>
+
+                        <!-- Product Model Dropdown -->
+                        <div class="form-group">
+                            <div class="model-select" id="modelSelect">
+                                <input type="text" class="model-select-input" id="modelSelectInput"
+                                    placeholder="Select or search product model *" autocomplete="off" role="combobox"
+                                    aria-expanded="false" aria-autocomplete="list" aria-controls="modelSelectList">
+                                <input type="hidden" name="productModel" id="productModel" required>
+                                <span class="model-select-arrow">&#9662;</span>
+
+                                <div class="model-select-dropdown" id="modelSelectList" role="listbox">
+                                    <!-- Populated by JS from MODEL_DATA -->
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -274,6 +289,13 @@
                         <div class="form-group">
                             <input type="text" name="purchaseDate" placeholder="Purchase Date *"
                                 onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
+                        </div>
+
+                        <!-- Upload Invoice -->
+                        <div class="form-group">
+                            <label for="invoiceUpload">Upload Invoice *</label>
+                            <input type="file" id="invoiceUpload" name="invoice"
+                                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">
@@ -306,7 +328,7 @@
                     </ul>
                     <div class="service-contacts">
                         <h4>Service Contacts</h4>
-                        <p><strong>Service Email:</strong> Service@virgoplus.in</p>
+                        <p><strong>Service Email:</strong> service@virgoplus.in</p>
                         <p><strong>Service Helpline:</strong> +91-XXXX-XXXXXX</p>
                         <p><strong>Service Hours:</strong> Mon-Sat, 9:00 AM - 6:00 PM</p>
                     </div>
